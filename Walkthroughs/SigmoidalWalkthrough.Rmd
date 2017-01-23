@@ -1,0 +1,141 @@
+---
+title: "Sigmoidal Walkthrough"
+author: "Piero Ricchiuto & Bruno Contrino"
+output: 
+  html_document:
+    theme: cosmo
+    toc: true
+    toc_float: true
+---
+
+
+##Introduction
+
+This walkthrough will explain step by step how to apply a sigmoidal fit to your data using DOSCHEDA. There are some important pre-requisites in order to fit this type of model. These are: **At least 5 channels** and **one replicate**. The user will also need to know the concentrations of the drug at each of the channels corresponds to.
+
+
+|                     |1 Replicate |More than 1 Replicate |
+|:--------------------|:-----------|:---------------------|
+|**Less than 5 channels** |Not enough data      |Linear                |
+|**5 or more channels**   |Sigmoidal   |Linear                |
+
+Table: Table 1: Possible analysis given your experimental design.
+
+## Data
+
+In order to use DOSCHEDA with a sigmoidal fit, as well as the pre-requisites mentioned in the introduction, the data will need to include the fields seen in Table 2. 
+
+
+|                    |Input                                                                                   |
+|:-------------------|:---------------------------------------------------------------------------------------|
+|**Peptide Intensities** |Peptide Qvality Score, Protein Accessions, Peptide Names, Intensities (several columns) |
+|**Fold Changes**        |Protein Fold Changes (several columns)           |
+|**Log-Fold Changes**    |Protein log-Fold Changes (several columns)     |
+
+Table: Table 2: Required columns containing the following data given your data type. 
+
+
+If your data includes all of the following, you can begin to use DOSCHEDA. 
+
+## Uploading the Data
+
+In order to being the analysis, the data must be uploaded correctly into the application.
+The following will give a step by step guide on how to upload this data. 
+
+*All instructions in italics will be the steps to complete an analysis with DOSCHEDA for a given file that we provide in the github repositry https://github.com/brunocontrino/DOSCHEDA/tree/master/data . To use the file you must download it to your computer.*
+
+If the user is uploading intensities: 
+
+1. Select **intensities** in the '**Data  Type:**' section.
+
+2. Select your file type from the options in the '**File Type:**' section.  
+        *Select 'csv' option for radio button*
+
+3. Go to the '**Choose File**' section and click 'Browse...' and select the file you would like to analyse.  
+   *Select the SigmoidalIntensities.csv file from your computer*
+
+4. Select the correct number of channels and replicates in the '**\#Channels**' and '**\#Replicates**' section respectively.   
+   *In the '\# Channels' box put 9. In the '\# Replicates' box put 1.*
+
+5. Input the columns with the correct intensities in the box which appears with a random selection of your data column names.   
+  *The columns to import are 'Abundance..F1..126..Control', 'Abundance..F1..127N..Sample', 'Abundance..F1..127C..Sample', 'Abundance..F1..128N..Sample', 'Abundance..F1..128C..Sample', 'Abundance..F1..129N..Sample', 'Abundance..F1..129C..Sample', 'Abundance..F1..130N..Sample', 'Abundance..F1..130C..Sample', 'Abundance..F1..131..Sample'*
+
+6. Go to the '**Choose Sequence**' drop down list and select the column name for the column containing the peptide sequences in your data.   
+  *Select 'Sequence'*
+
+7. Go to the '**Select Peptide Qvality Score:**' drop down list and select the column containing peptide qvality score.  
+  *Select 'Qvality.PEP'*
+  
+8. Go to the '**Choose Accession**' drop down list and select the column containing protein accessions.  
+*Select Master.Accessions*
+
+9. Select the 'sigmoidal’ radio button from the **Fit Model:** section.
+
+10. Input your concentrations in the **Enter the vector of Concentrations...**, these should be from smallest to largest, not in log scale and each concentration must be separated by a comma.  
+*Input: 1,2,3,4,5,6,7,8*
+
+
+11. Select one of the plot tabs and wait for the loading sign in the top left to finish. 
+
+
+If you are uploading fold changes: 
+
+1. Select 'intensities' in the '**Data  Type:**' section.
+
+2. Select file type from the options in the '**File Type:**' section.  
+  *Select 'csv' options from the radio buttons.*
+
+3. Go to the '**Choose File**' section and click 'Browse...' and select the file you would like to analyse.  
+  *Select sigmoidalFC from your computer* 
+
+4. Select the correct number of channels and replicates in the '**\#Channels**' and '**\#Replicates**' section respectively.  
+   *In the '\# Channels' box put 9. In the '\# Replicates' box put 1.*
+
+5. Input the columns with the correct log fold changes.  
+  *The columns to import are 'A6..114.115_norm_log2',	'A6..114.116_norm_log2',	'A6..114.117_norm_log2',	 'B6..114.115_norm_log2',	'B6..114.116_norm_log2',	'B6..114.117_norm_log2'*    
+ + If you are using data which is not from PD 2.1 the you must tick the 'data NOT PD 2.1 put the column selecting the \# of Unique Peptides from your data and the data column containing the protein accession numbers from their respective drop down list.  
+ *This does not apply to the file we have supplied*
+
+
+9. Select the radio button 'sigmoidal' from the **Fit Model:** section.
+
+10. Input your concentrations in the **Enter the vector of Concentrations...**, these should be from smallest to largest, not in log scale and each concentration must be separated by a comma.  
+*Input: 1,2,3,4,5,6,7,8,9*
+
+11. Select one of the plot tabs and wait for the loading sign in the top left to finish. 
+
+## GeneID and CRAPome
+
+The organism which will be used determine the accession number to Gene ID conversion can be altered by changing the organism in the **Select your organism:** section in the **Data Upload** tab. This will also determine which different CRAPome data set will be used to calculate the CRAPome percentages seen in the final data set. These are used to give an indication of how much a given protein binds in a series of experiments, if there are proteins with high binding and a high CRAPome percentage, this could mean that the protein is simply binding in most experiments. Note that this will not affect any of the actual pipeline and thus if your organism is not available in the CRAPome then it will not have an impact on the analysis and quality control on your data. 
+
+
+## Plots
+
+There are several different plots created that are designed visualise the results of the analysis and provide some quality control on the experiment. 
+
+
+|Plot                          |Description                                                                                                                                                          |Type     |
+|:-----------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------|
+|Box                           |A box plot showing the mean and the interquartile range of each channel                                                                                              |QC       |
+|Density and ranked protein    |These plots show the density distribution of each channel and the distribution of the ranked proteins                                                                |QC       |
+|Venn                          |The intersection of the kinome and the inputted proteins. There is also the option to load a list of protein names and see the intersection with a personalised list |QC       |
+|MeanSD                        |Shows the ranked means with a running median calculated with a window of 10%                                                                                        |QC       |
+|Corrgram                      |Pearson Correlation Coefficient between each channel                                                                                                                 |QC       |
+|Compare Replicates            |The fold change per protein plotted against each other in each replicate                                                                                              |Analysis |
+|PCA                           |Each channel is plotted in the first two principal components of the data                                                                                            |Analysis |
+|Heatmap                       |Interactive heat map of the values per protein per channel                                                                                                            |Analysis |
+|Sigmoidal Model: Top - Bottom |The largest differences between the proteins from the lowest and highest concentrations                                                                               |Analysis |
+|Sigmoidal Model: RB50         |The top proteins with significant RB50 values                                                                                                                        |Analysis |
+|Sigmoidal Model: Slopepl      |The top proteins with significant Slope Value                                                                                                                                                                   |Analysis |
+
+## Downloading Results 
+
+Users can save their results by clicking on the 'Downloads' tab, clicking on the 'Download Data' button to download the processed data and clicking on the 'Download Report' button to download a html report containing all the plots seen in the analysis with descriptions as well as other important elements such as the options the user has inputted for example the number of channels etc.
+
+
+## More Informaion and Help 
+
+If you would like to know more about the pipeline used in the DOSCHEDA analysis, please refer to the user manual, this can be accessed at the DOSCHEDA Github: https://github.com/brunocontrino/DOSCHEDA 
+
+
+
