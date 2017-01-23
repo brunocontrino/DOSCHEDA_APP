@@ -135,7 +135,7 @@ Users can save their results by clicking on the 'Downloads' tab, clicking on the
 
 ## More Informaion and Help 
 
-If you would like to know more about the pipeline used in the DOSCHEDA analysis, please refer to the user manual, this can be accessed at the DOSCHEDA Github: https://github.com/brunocontrino/DOSCHEDA 
+If you would like to know more about the pipeline used in the DOSCHEDA analysis, please refer to the user manual, this can be accessed at the DOSCHEDA GitHub: https://github.com/brunocontrino/DOSCHEDA 
 
 
 
