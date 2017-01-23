@@ -1,3 +1,3 @@
 # DOSCHEDA
-A chemo-proteomics Data analysis web application
+A Chemoproteomics Data analysis web application
 
