@@ -1,0 +1,121 @@
+Assay ID,Assay Method,Symbol,Mode,Classification,Format,Target Class,Technology
+220,Single Point,ABL1,Km app,Cytoplasmic Tyr,Biochemical (Activity),Kinase,ZLYTE
+235,Single Point,ABL2,Km app,Cytoplasmic Tyr,Biochemical (Activity),Kinase,ZLYTE
+238,Single Point,ALK4,Km app,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+247,Single Point,AKT1,Km app,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+250,Single Point,AKT2,Km app,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+256,Single Point,ALK,Km app,Receptor Tyr,Biochemical (Activity),Kinase,ZLYTE
+262,Single Point,AMPK,Km app,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+268,Single Point,AURKB,Km app,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+271,Single Point,AURKC,Km app,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+274,Single Point,AXL,Km app,Receptor Tyr,Biochemical (Activity),Kinase,ZLYTE
+277,Single Point,BLK,Km app,Cytoplasmic Tyr,Biochemical (Activity),Kinase,ZLYTE
+280,Single Point,BMX,Km app,Cytoplasmic Tyr,Biochemical (Activity),Kinase,ZLYTE
+281,Single Point,BRAF,100,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+288,Single Point,BTK,Km app,Cytoplasmic Tyr,Biochemical (Activity),Kinase,ZLYTE
+991,Single Point,CAMK1,10,Ser/Thr,Biochemical (Activity),Kinase,Adapta
+297,Single Point,CAMK2B,Km app,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+312,Single Point,CDK1,Km app,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+315,Single Point,CDK2,Km app,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+996,Single Point,CDK7,Km app,Ser/Thr,Biochemical (Activity),Kinase,Adapta
+999,Single Point,CDK9,Km app,Ser/Thr,Biochemical (Activity),Kinase,Adapta
+324,Single Point,CHEK1,Km app,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+336,Single Point,CSF1R,Km app,Receptor Tyr,Biochemical (Activity),Kinase,ZLYTE
+351,Single Point,CSNK1G1,Km app,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+363,Single Point,CSNK2A2,Km app,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+1184,Single Point,DDR2,,Receptor Tyr,Biochemical (Binding),Kinase,LanthaScreen Binding
+1185,Single Point,DMPK,,Ser/Thr,Biochemical (Binding),Kinase,LanthaScreen Binding
+1810,Single Point,DYRK2,,Ser/Thr,Biochemical (Binding),Kinase,LanthaScreen Binding
+383,Single Point,EEF2K,Km app,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+386,Single Point,EGFR,Km app,Receptor Tyr,Biochemical (Activity),Kinase,ZLYTE
+398,Single Point,EGFR,Km app,Receptor Tyr,Biochemical (Activity),Kinase,ZLYTE
+412,Single Point,EPHA5,Km app,Receptor Tyr,Biochemical (Activity),Kinase,ZLYTE
+418,Single Point,EPHB1,Km app,Receptor Tyr,Biochemical (Activity),Kinase,ZLYTE
+427,Single Point,EPHB4,Km app,Receptor Tyr,Biochemical (Activity),Kinase,ZLYTE
+430,Single Point,ERBB2,Km app,Receptor Tyr,Biochemical (Activity),Kinase,ZLYTE
+433,Single Point,ERBB4,Km app,Receptor Tyr,Biochemical (Activity),Kinase,ZLYTE
+436,Single Point,FER,Km app,Cytoplasmic Tyr,Biochemical (Activity),Kinase,ZLYTE
+439,Single Point,FES,Km app,Cytoplasmic Tyr,Biochemical (Activity),Kinase,ZLYTE
+442,Single Point,FGFR1,Km app,Receptor Tyr,Biochemical (Activity),Kinase,ZLYTE
+1816,Single Point,FGFR1,,Receptor Tyr,Biochemical (Binding),Kinase,LanthaScreen Binding
+445,Single Point,FGFR2,Km app,Receptor Tyr,Biochemical (Activity),Kinase,ZLYTE
+448,Single Point,FGFR3,Km app,Receptor Tyr,Biochemical (Activity),Kinase,ZLYTE
+454,Single Point,FGFR4,Km app,Receptor Tyr,Biochemical (Activity),Kinase,ZLYTE
+459,Single Point,FLT1,Km app,Receptor Tyr,Biochemical (Activity),Kinase,ZLYTE
+462,Single Point,FLT3,Km app,Receptor Tyr,Biochemical (Activity),Kinase,ZLYTE
+471,Single Point,FRAP1,Km app,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+477,Single Point,FYN,Km app,Cytoplasmic Tyr,Biochemical (Activity),Kinase,ZLYTE
+492,Single Point,GSK3A,Km app,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+495,Single Point,GSK3B,Km app,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+507,Single Point,IGF1R,Km app,Receptor Tyr,Biochemical (Activity),Kinase,ZLYTE
+510,Single Point,IKBKB,Km app,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+516,Single Point,INSR,Km app,Receptor Tyr,Biochemical (Activity),Kinase,ZLYTE
+518,Single Point,INSRR,Km app,Receptor Tyr,Biochemical (Activity),Kinase,ZLYTE
+521,Single Point,IRAK4,Km app,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+526,Single Point,JAK1,Km app,Cytoplasmic Tyr,Biochemical (Activity),Kinase,ZLYTE
+529,Single Point,JAK2,Km app,Cytoplasmic Tyr,Biochemical (Activity),Kinase,ZLYTE
+537,Single Point,JAK3,Km app,Cytoplasmic Tyr,Biochemical (Activity),Kinase,ZLYTE
+540,Single Point,KDR,Km app,Receptor Tyr,Biochemical (Activity),Kinase,ZLYTE
+542,Single Point,KIT,Km app,Receptor Tyr,Biochemical (Activity),Kinase,ZLYTE
+548,Single Point,LCK,Km app,Cytoplasmic Tyr,Biochemical (Activity),Kinase,ZLYTE
+554,Single Point,LYN A,Km app,Cytoplasmic Tyr,Biochemical (Activity),Kinase,ZLYTE
+558,Single Point,MAP2K1,100,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+1203,Single Point,MAP3K7,,Ser/Thr,Biochemical (Binding),Kinase,LanthaScreen Binding
+563,Single Point,MAP3K9,Km app,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+585,Single Point,MAPK14,100,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+589,Single Point,MAPK8,100,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+593,Single Point,MAPKAPK2,Km app,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+599,Single Point,MAPKAPK5,Km app,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+602,Single Point,MARK1,Km app,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+605,Single Point,MARK2,Km app,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+617,Single Point,MET,Km app,Receptor Tyr,Biochemical (Activity),Kinase,ZLYTE
+623,Single Point,MINK1,Km app,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+1267,Single Point,MKNK2,,Ser/Thr,Biochemical (Binding),Kinase,LanthaScreen Binding
+626,Single Point,MST1R,Km app,Receptor Tyr,Biochemical (Activity),Kinase,ZLYTE
+1209,Single Point,MYLK,,Ser/Thr,Biochemical (Binding),Kinase,LanthaScreen Binding
+638,Single Point,NEK2,Km app,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+651,Single Point,NTRK1,Km app,Receptor Tyr,Biochemical (Activity),Kinase,ZLYTE
+1163,Single Point,NUAK1,Km app,Ser/Thr,Biochemical (Activity),Kinase,Adapta
+1166,Single Point,PAK1,Km app,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+660,Single Point,PAK2,Km app,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+666,Single Point,PAK4,Km app,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+672,Single Point,PAK7,Km app,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+687,Single Point,PDGFRB,Km app,Receptor Tyr,Biochemical (Activity),Kinase,ZLYTE
+688,Single Point,PDK1,100,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+979,Single Point,PI4KB,Km app,Lipid,Biochemical (Activity),Kinase,Adapta
+1065,Single Point,PIK3C2A,Km app,Lipid,Biochemical (Activity),Kinase,Adapta
+175,Single Point,PIK3C3,Km app,Lipid,Biochemical (Activity),Kinase,Adapta
+1014,Single Point,PIK3CA,Km app,Lipid,Biochemical (Activity),Kinase,Adapta
+973,Single Point,PIK3CB,Km app,Lipid,Biochemical (Activity),Kinase,Adapta
+976,Single Point,PIK3CD,Km app,Lipid,Biochemical (Activity),Kinase,Adapta
+1017,Single Point,PIK3CG,Km app,Lipid,Biochemical (Activity),Kinase,Adapta
+700,Single Point,PIM2,Km app,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+706,Single Point,PLK1,Km app,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+715,Single Point,PRKACA,Km app,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+718,Single Point,PRKCA,Km app,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+730,Single Point,PRKCE,Km app,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+745,Single Point,PRKCQ,Km app,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+757,Single Point,PRKG1,Km app,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+766,Single Point,PTK2,Km app,Cytoplasmic Tyr,Biochemical (Activity),Kinase,ZLYTE
+771,Single Point,PTK6,Km app,Cytoplasmic Tyr,Biochemical (Activity),Kinase,ZLYTE
+775,Single Point,RET,Km app,Receptor Tyr,Biochemical (Activity),Kinase,ZLYTE
+778,Single Point,RET V804L,Km app,Receptor Tyr,Biochemical (Activity),Kinase,ZLYTE
+1847,Single Point,RET V804M,,Receptor Tyr,Biochemical (Binding),Kinase,LanthaScreen Binding
+784,Single Point,ROCK1,Km app,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+787,Single Point,ROCK2,Km app,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+789,Single Point,ROS1,Km app,Receptor Tyr,Biochemical (Activity),Kinase,ZLYTE
+792,Single Point,RPS6KA1 ,Km app,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+804,Single Point,RPS6KA5,Km app,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+810,Single Point,RPS6KB1,Km app,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+813,Single Point,SGK,Km app,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+822,Single Point,SRC,Km app,Cytoplasmic Tyr,Biochemical (Activity),Kinase,ZLYTE
+830,Single Point,SRPK1,Km app,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+1217,Single Point,STK17A ,,Ser/Thr,Biochemical (Binding),Kinase,LanthaScreen Binding
+851,Single Point,STK4,Km app,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+854,Single Point,SYK,Km app,Cytoplasmic Tyr,Biochemical (Activity),Kinase,ZLYTE
+859,Single Point,TBK1,Km app,Ser/Thr,Biochemical (Activity),Kinase,ZLYTE
+1239,Single Point,TGFBR1,,Ser/Thr,Biochemical (Binding),Kinase,LanthaScreen Binding
+1860,Single Point,TNIK,,Ser/Thr,Biochemical (Binding),Kinase,LanthaScreen Binding
+867,Single Point,TYRO3,Km app,Receptor Tyr,Biochemical (Activity),Kinase,ZLYTE
+1862,Single Point,ULK2,,Ser/Thr,Biochemical (Binding),Kinase,LanthaScreen Binding
+870,Single Point,YES1,Km app,Cytoplasmic Tyr,Biochemical (Activity),Kinase,ZLYTE
