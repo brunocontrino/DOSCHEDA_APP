@@ -8,63 +8,66 @@ output:
     toc_float: true
 ---
 
-## Introduction 
+## DOSCHEDA Manual 
 
-DOSCHEDA is a Shiny web application which analyses chemo-proteomics Mass Spectrometry data. It is designed to be used by biologists such that they can analyse their data immediately, giving a series of plots aimed to visualise the quality of the data as well as the 'most important' results from it. The application has a series of different pipelines which will be applicable to different experimental designs. A novel aspect of DOSCHEDA is a peptide removal process aimed to reduce noise in the data, given that the data supplied is peptide intensities. This is process will be explained in detail within the manual. The application will also, given the user has enough data, allow the application of linear and sigmoidal models. Detail of this can be seen in Figure 1. After uploading an experiment and running DOSCHEDA, the results can be downlaoded and saved as well as a HTML report which contains all of the relevant plots seen whilst DOSCHEDA is running. 
-This manual will aim to give a general overview of the application, for specific, step-by-step instructions for a given experimental design please refer to the DOSCHEDA walkthroughs available at https://github.com/brunocontrino/DOSCHEDA . 
+DOSCHEDA is a Shiny web application that analyses Chemoproteomics Mass Spectrometry data. It is designed for minimal user input and requires no programming skills. The application has a series of different pipelines which will be applicable to different experimental designs. A novel aspect of DOSCHEDA is a peptide removal process aimed to reduce noise in the data, given that the data supplied is peptide intensities. This process will be explained in detail within the manual. The application allow users to apply linear and sigmoidal models for data analysis, see Figure 1. After running DOSCHEDA, the user can download and visualize the results in a self-contained HTML report format which contains all of the relevant plots seen whilst DOSCHEDA is running. 
+This manual will aim to give a general overview of the application, for specific, step-by-step instructions for a given experimental design please refer to the DOSCHEDA walkthroughs which follow the manual at in this document and are also available at https://github.com/brunocontrino/DOSCHEDA.
+ 
 
 ![Figure 1. Workflow of DOSCHEDA application](Workflow.png)
 
-## The Data 
 
-The application is designed to take three different types of data which can come out of the chemo-proteomic experiments:
 
-**Peptide Intensities:** These consist of a series of peptide intensities which are attributed to each protein in the data set. In the most common technology, these peptides are summed to quantify the protein. These are then converted to log fold changes and then passed into the pipeline.
+### The Data 
 
-**Fold Changes:** These are the fold changes of the peptide intensities mentioned above. 
+The application is designed to take three different types of data obtained from a typical Chemoproteomics experiment:
 
-**Log Fold Changes:** These are the log fold changes of the peptide intensities mentioned above.
+**Peptide Intensities:** These consist of a series of peptide intensities which are attributed to each protein in the data set. We use the same procedure for summing the reporter ions to protein relative quantification as described in Proteome Discoverer 2.1. The protein fold changes are then converted to log2 scale and then passed into the pipeline.
 
- This application has been optimised for using data from ProteomeDiscoverer 2.1 (PD 2.1), but it can also take data from other technologies given that it contains certain columns. Depending on which kind of data is selected there are different requirements These are seen in Table 1 and Table 2. 
+**Fold Changes:** These are the fold changes of the protein intensities. 
+
+**Log Fold Changes:** These are the log fold changes of the protein intensities mentioned above.
+
+This application has been optimised for using data from Proteome Discoverer 2.1 (PD 2.1), but it can also take data from other software given that it contains specific columns. In fact, depending on which type of input data is selected there are different inputs that the application need for downstream processing as described in Table 1 and Table 2. 
 
 ```{r wastebin1, eval = FALSE,echo = FALSE}
-*Peptide Intensities: `r c("Peptide Qvality Score", "Protein Accessions", "Peptide Names", "Intensities (several columns)")`*
+*Peptide Intensities: `r c("Peptide Qvality Score", "Protein Accessions", "Peptide Names", "Intensities")`*
 
-*Fold Changes: `r c( "protein Fold Changes (several columns)")`*
+*Fold Changes: `r c( "protein Fold Changes")`*
 
-*Log Fold Changes: `r c( "protein log-Fold Changes (several columns)")`*
+*Log Fold Changes: `r c( "protein Log-Fold Changes")`*
 ```
 
 |                    |Input                                                                                   |
 |:-------------------|:---------------------------------------------------------------------------------------|
-|**Peptide Intensities** |Peptide Qvality Score, Protein Accessions, Peptide Names, Intensities (several columns) |
-|**Fold Changes**        |Protein Fold Changes (several columns)           |
-|**Log-Fold Changes**    |protein log-Fold Changes (several columns)     |
+|**Peptide Intensities** |Peptide Qvality Score, Protein Accessions, Peptide Names, Intensities |
+|**Fold Changes**        |Protein Fold Changes |
+|**Log-Fold Changes**    |protein Log-Fold Changes  |
 
 Table: Table 1. Required inputs for DOSCHEDA if data is from PD2.1  
 
 
 ```{r westbin2,echo = FALSE, eval = FALSE}
-*Peptide Intensities: `r c("Peptide Qvality Score", "Protein Accessions", "Peptide Names", "Intensities (several columns)")`*
+*Peptide Intensities: `r c("Peptide Qvality Score", "Protein Accessions", "Peptide Names", "Intensities")`*
 
-*Fold Changes: `r c( "Protein Accessions", "protein Fold Changes (several columns)", "Gene id(optional)")`*
+*Fold Changes: `r c( "Protein Accessions", "Protein Fold Changes", "Gene id (optional)")`*
 
-*Log Fold Changes: `r c( "Protein Accessions" ,"protein log-Fold Changes (several columns)", "Gene id (optional)")`*
+*Log Fold Changes: `r c( "Protein Accessions" ,"Protein Log-Fold Changes", "Gene id (optional)")`*
 
 ```
 
 
 |                    |Input                                                                                   |
 |:-------------------|:---------------------------------------------------------------------------------------|
-|**Peptide Intensities** |Peptide Qvality Score, Protein Accessions, Peptide Names, Intensities (several columns) |
-|**Fold Changes**        |Protein Accessions, protein Fold Changes (several columns), Gene id(optional), Unique Peptides           |
-|**Log-Fold Changes**    |Protein Accessions, protein log-Fold Changes (several columns), Gene id (optional), Unique Peptides      |
+|**Peptide Intensities** |Peptide Qvality Score, Protein Accessions, Peptide Names, Intensities  |
+|**Fold Changes**        |Protein Accessions, protein Fold Changes, Gene id(optional), Unique Peptides           |
+|**Log-Fold Changes**    |Protein Accessions, protein Log-Fold Changes, Gene id (optional), Unique Peptides      |
 
 Table: Table 2. Required inputs for DOSCHEDA if data is not from PD2.1  
 
-## Uploading your data
+### Uploading your data
 
-In order to use DOSCHEDA correctly it is key to learn how the **Data Upload** tab is used in order to upload your data, select the correct column headers and check that what you have entred is in fact what you want to analyse. In this section we give an overall guide on how to do this.
+To use DOSCHEDA correctly it is key to learn how the **Data Upload** tab is used for data upload, including the correct selection of column headers and adequate input data for the selected analysis. In this section, we give an overall guide on how to do this.
 
 **Step 1**. Click on the **Upload Data** tab. 
 
@@ -74,34 +77,36 @@ In order to use DOSCHEDA correctly it is key to learn how the **Data Upload** ta
 
 **Step 4**. Click 'Browse' and select your file. Ensure the prior steps have been completed. 
 
-**Step 5**. Once the file has loaded go to the drag and drop box and enter the correct columns which contain your intensities/fold changes/log fold changes. 
+**Step 5**. Once the file has loaded go to the drag and drop box and enter the correct columns which contain your input intensities or fold changes.
 
-**Step 6**. Check that the columns you have select correspond to the correct standardised name by looking at the table in the top right corner.
-+ If you are applying a sigmoidal model, select **Sigmoidal** from the **Fit model:** radio buttons and input your concentrations. They must not be in log form and the should be from lowest to highest, each separated by a comma.
+**Step 6**. Check that the selected columns correspond to the correct standardised name by looking at the table in the top right corner.
++ If the user is applying a sigmoidal model, select **Sigmoidal** from the **Fit model:** radio buttons and input your concentrations. They must be in a non-log form and the should be from lowest to highest, each separated by comma.
 
-**Step 7**. If your data is from PD2.1 click away from the 'Data Upload' tab and cycle through the rest of the tabs, when DOSCHEDA is busy, the word 'loading will appear in the top left corner of the app and once this stops the plots will be generated. If it not from PD2.1 you will need to enter the missing fields seen in Table 2 by ticking the appropriate checkboxes and selecting the correct column names for these fields.
+**Step 7**. If your data is from PD2.1 click away from the 'Data Upload' tab and cycle through the rest of the tabs, when DOSCHEDA is busy, the word 'loading will appear in the top left corner of the app and once this stops the plots will be generated. If data inputs are not obtained from PD2.1 the user will need to enter the missing fields as described in Table 2 by ticking the appropriate checkboxes and selecting the correct column names for these fields.
 
 
-To have a step by step guide on each different type of input and model type combination you can see the individual walkthroughs available at  which will give a detailed example of how to carry out each type of analysis successfully using the application.
+To have a step by step guide on each different type of input and model type combination the user can read the individual walkthroughs available at which will give a detailed example of how to carry out each type of analysis successfully using the application.
 
 ### Other Uploadable Files
 
-There are two other possible upload files that DOSCHEDA has a functionality for, a protein accession to gene symbol ID file and a list of Kinases to compare with the proteome in your data set. 
+There are two other possible upload files that DOSCHEDA has a functionality for, a protein accession to gene symbol ID (two columns file) and a list of custom gene symbol IDs (e.g. Kinases "CDK9") to compare with the pull-down proteome in your data, the default is a list of kinases that have been taken from the literature. 
 
-The protein accession to gene symbol ID file should only be used if you do not want DOSCHEDA to use the intermine gene ID and you want each accession to be converted to a custom set of gene ID. The intermine files will be updated regularly and therefore should be able to meet the needs of your experiment without the need to upload your own file.
+DOSCHEDA uses Intermine to map Uniprot accession number to gene symbol ID. Should the user wish to by-pass DOSCHEDA mapping it can be done by uploading a custom 2 columns file (accession to gene symbol ID). Intermine files are updated regularly and should be able to provide the user with the most up-to-date conversions.
 
-The **Include file** check box visible in the Venn tab within the **Box and Density plots** tab will simply let you see if there is an intersection between your custom list of proteins and the kinases and proteins in your data. This is not crucial to the DOSCHEDA pipeline and should only be used if you have this specific requirement.
-
-
-## Downloading your Results
-
-Users can save their results by clicking on the 'Downloads' tab, clicking on the 'Download Data' button to download the processed data and clicking on the 'Download Report' button to download a HTML report containing all the plots seen in the analysis with descriptions as well as other important elements such as the options the user has inputted for example the number of channels, repicates and which fit they have applied to the data.
+The **Include file** check box visible in the Venn tab within the **Box and Density plots** tab will simply let the user visualise the intersection between the uploaded custom list of proteins and the pull-down proteome in your data. This is not crucial to the DOSCHEDA pipeline and should only be used if the user has this specific requirement.
 
 
-## Different Models 
 
-We have the option to apply two different types of model to the data, linear and sigmoidal. The linear model uses a linear model fit with a quadratic formula such that we obtain a coefficient for the intercept, slope and quadratic of a parabola. This fit can be applied to experiments with few concentrations.  
-However if there are enough channels, a sigmoidal fit can be applied. We use a model with 4 parameters which aims to model a dose response for the proteins for the drugs. 
+### Downloading your Results
+
+From the 'Downloads' tab users can save their processed data by clicking on the 'Download Data' button. Also in the same tab, the 'Download Report' button enables users to download an HTML report containing all the plots seen in the analysis with descriptions as well as other important information such as the options the user has used during the workflow including the number of channels (e.g. concentrations), replicates and the statistical fit applied for the data analysis.
+
+
+### Different Models 
+
+DOSCHEDA has the option to apply two different types of model to the data, linear and sigmoidal. The linear model uses a linear model fit with a quadratic formula such that the coefficients intercept, slope and quadratic of a parabola can be extracted. This fit can be applied to experiments with few concentrations (e.g. 3 to 5).  
+However, if there are enough channels (e.g. concentrations), a sigmoidal fit can be applied. DOSCHEDA uses a model with 4 parameters to model a dose response for each protein.
+
 
 
 |                     |1 Replicate |More than 1 Replicate |
@@ -111,32 +116,31 @@ However if there are enough channels, a sigmoidal fit can be applied. We use a m
 
 Table: Table 3. Possible model application depending on experimental design.
 
-As well as the model applied data there is also a difference in processing the data depending on the model we fit. In terms of the linear model there is not a lot of difference, we filter by the number of unique peptides, in the sigmoidal fit we change the data such that each protein is dose response where the score is a percentage present at the concentration. Due to the experiment, a lowering of percentage means the protein is binding more to the drug. 
 
-
-## Linear Fit: Peptide Removal Process 
+### Linear Fit: Peptide Removal Process 
 
 The peptide removal process uses a Pearson Moment Correlation coefficient in order to determine linearity between two of the same peptides that belong to the same protein accession. We assume that the same peptide has a linear relationship between each replicate at the different concentrations, this grounds our reasoning for using a Pearson Correlation to quantify the linear relationship between the replicates. 
 
 The main steps of the peptide removal are as follows: 
 
-**Step 1**. Match the proteins in both replicates, eliminate all other proteins.
+**Step 1**. Match the master protein name in both replicates.
 
-**Step 2**.  Match the peptides within each of the matched proteins, eliminate all other proteins. 
+**Step 2**. Match the peptides within each master protein name. 
 
-**Step 3**. If there are discrepancies in the number of a particular peptide between the replicates, these are matched by taking the mean of the replicate with less counts of the peptide is taken and repeated such that there are the same number of peptides per replicate. The imputed values are only used in step 3 and are not considered in the final quantification of the protein. 
+**Step 3**. For each peptide within the same master protein, if the number of peptides differs between replicates, the algorithm will match them to the highest number of peptides.
+The introduced new peptides will have the mean intensities computed from the replicate with the lowest number of peptides.
+The imputed mean values are only used in step 4 to allow the correlation calculation, but are not considered in the final quantification of the protein. See Example below.
 
-**Step 4**. Per peptide, calculate the Pearson correlation between each replicate and eliminate all peptides with a coefficient less that 0.4.
+**Step 4**. Per peptide, calculate the Pearson correlation between each replicate and eliminate all peptides with a coefficient less than 0.4.
 
-**Step 5**. Sum all intensities per protein accession to give a final intensity per protein with the noisy peptides removed. 
+**Step 5**. Sum all intensities per master protein name to give a final intensity per protein. 
 
 
 ### Example of Step 3
 
-We have created a dummy example to give more details on Step 3. 
-We have two replicates: one with three of the same peptide (Table 4) and one with two of the same peptide (Table 5). This means that we need to match the two replicates such that they will have the same number of peptides. To do this we take the mean of each of the channels to expand the second replicate such that it has 3 peptides within it. This is seen on the third row of Table 6 which is the mean of the rest.   
-The two tables are then used to calculate the Pearson moment correlation constant, if it is smaller than 0.4 the peptide will not be used to quantify the protein that the peptide A is associated to. 
-  In this case the correlation constant is 0.5 therefore the peptide A will be used to quantify the protein it is associated with.  
+This example is to clarify the details of step 3. Let there be two replicates: one with three peptide intensities (Table 4) and one with two (Table 5), for the same peptide. To match the number of total peptides (three) between the two replicates the algorithm will introduce in the replicate with less peptides (Table 5) an extra peptide whose intensities are the mean values of each channel within the same replicate. The result is reported in the third row of Table 6.
+The two tables are then used to calculate the Pearson moment correlation constant, if it is smaller than 0.4 the peptide will not be used  for the final protein quantification.
+In this case the correlation constant is 0.5 therefore, the peptide A will be used in the quantification of its associated master protein.  
 
 |Peptide | Control_rep1| C0_rep1| C1_rep1| C2_rep1|
 |:-------|------------:|-------:|-------:|-------:|
@@ -144,14 +148,14 @@ The two tables are then used to calculate the Pearson moment correlation constan
 |A       |            2|       2|       2|       2|
 |A       |            3|       3|       3|       3|
 
-Table 4: Example: Peptide values for replicate one 
+Table: Table 4: Example: Peptide values for replicate one 
 
 |Peptide | Control_rep2| C0_rep2| C1_rep2| C2_rep2|
 |:-------|------------:|-------:|-------:|-------:|
 |A       |            1|       1|       1|       1|
 |A       |            2|       2|       2|       2|
 
-Table 5: Example: Peptide values for replicate two 
+Table: Table 5: Example: Peptide values for replicate two 
 
 |Peptide | Control_rep2| C0_rep2| C1_rep2| C2_rep2|
 |:-------|------------:|-------:|-------:|-------:|
@@ -159,29 +163,26 @@ Table 5: Example: Peptide values for replicate two
 |A       |            2|       2|       2|       2|
 |A       |            1.5|       1.5|       1.5|       1.5|
 
-Table 6: Example:  New values for replicate two, with the third row being the mean of the columns. 
+Table: Table 6: Example:  New values for replicate two, with the third row being the mean of the columns. 
 
 ![Figure 2. Peptide removal process workflow](Peptide Removal.png)
 
 
-## Sigmoidal Fit: Parameters
+### Sigmoidal Fit: Parameters
 
 The pipeline for analysing a data set with a sigmoidal fit is slightly different than in the linear model case. The data is not transformed to log2 as each channel is converted from fold-change to percentages.
 
-DOSCHEDA will fit a sigmoidal with 4 parameters: The initial value, value, RB50 and the slope. 
-The top and bottom are simply the starting point, that is how much of a protein is binding to the drug at the first concentration and at the last concentration of the data.
-
+DOSCHEDA will fit a sigmoidal with 4 parameters (top, bottom, RB50, slope) as described in Dose-Response Analysis Using R Christian Ritz et al (2015) Plos One.
 The RB50 is the concentration of the drug where the 50% of the protein has bound to the drug.
+In residual binding experiments the slope coefficient is expected to be negative as we expect a decrease between the initial value (no binding) and final value (bounded protein to the drug) of each protein. 
 
-The slope parameter is for the slope of the sigmoidal curve in the case of residual binding experiments the slope coefficient is expected to be negative as we expect a decrease between the initial value and final value of each protein. 
+If the data set contains a pull down of pull down column, the depletion factor *r* of the experiment can be calculated. This is then multiplied by the RB50 value to give the dissociation constant (K~d~) which is the equilibrium rate constant of the protein. As described  by Daub et al. (2015) Quantitative Proteomics of Kinase Inhibitor Targets and Mechanisms.
 
-If the data set contains a pull down of pull down column, the depletion factor *r* of the experiment can be calculated. This is then multiplied by the RB50 value in order to give the dissociation constant (K~d~) which is the equilibrium rate constant of the protein. 
+The user can include this in the final downloadable data by ticking the **Include pulldown of pulldown** check box in the **Data Upload** tab which will allow you include this column. DOSCHEDA will compute the depletion factor *r* and the dissociation constant (K~d~) which will be reported in the downloadable data. 
 
-The user can include this in the final downloadable data by ticking the **Include pulldown of pulldown** check box in the **Data Upload** tab which will allow you include this column and DOSCHEDA will give give the depletion factor *r* and the dissociation constant (K~d~) in the downloadable data. 
+### The Plots
 
-## The Plots
-
-The plots that will be generated are designed to give an idea if the experiment has been successful and visualise how much the proteins which are binding to the drug at different concentrations.
+The plots that will be generated are designed for quality check purposes and visualise the result outcomes of the statistical analysis.
 
 |Plot                          |Description                                                                                                                                                          |Available               |Type     |
 |:-----------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:--------|
@@ -200,7 +201,9 @@ The plots that will be generated are designed to give an idea if the experiment 
 |Sigmoidal Model: RB50         |The top proteins with significant RB50 values                                                                                                                        |Sigmoidal Model Applied |Analysis |
 |Sigmoidal Model: Slopepl      |The top proteins with significant Slope Value                                                                                                                                                                   |Sigmoidal Model Applied |Analysis |
 
-## DOSCHEDA: Summary tab
+Table: Table 7: DOSCHEDA plots and their use to the pipeline.
+
+### DOSCHEDA: Summary tab
 
 The summary tab in the app will show a few quality controls and show a table of the most relevant values for each gene in the pipeline. The user can search this table with text matching. 
 
@@ -211,37 +214,99 @@ There are also boxes which, depending on your results, will either show a green 
 |Corrgram           |Corrgram: No channels are anti-correlated                                                    |
 |Model Coefficients |The number of statistically significant coefficients are greater than 0 for each coefficient |
 
+Table: Table 8: DOSCHEDA Quality Control flags in the summary section.
 
-## Get DOSCHEDA
+### Get DOSCHEDA
 
 There are two different methods to use DOSCHEDA: 
 
-1. Use a web link https://bruniec.shinyapps.io/doscheda/ , this requires no installation only access to the web and your data files are on the device you are accessing DOSCHEDA from.
+1. Use a web link https://bruniec.shinyapps.io/doscheda/ , and have the user data files on the device from which DOSCHEDA is accessed from.
 
 1. Download the App from github at https://github.com/brunocontrino/DOSCHEDA 
 
 Note:
 
-For option 1, one can also host the app in their own server and have the app working within their own firewall with a link. 
+For option 1, one can also host the app on their own server and have the app working within their own firewall, to avoid using the application on a public server. 
 
 For option 2 one must have R installed on their device as well as the packages that are present at the top of the app.R file seen in the github repository.
 
 
 
-## Help and Troubleshooting
+### Help and Troubleshooting
 
-Please feel free to contact us at ... if there any questions or problems with DOSCHEDA, we will try to help as quickly as possible. 
+Please feel free to contact us at piero.ricchiuto@astrazeneca.com for feedbacks or unexpected isssues.
 
-Below are some solutions to some common issues. 
+##### Wrong file type selected for upload. 
 
-### Wrong file type selected for upload. 
+If the user has selected the wrong file type by mistake, DOSCHEDA will show a series of errors in the 'Data Upload' section. To rectify this one must select a different file to upload, make sure that the file type is selected, then re-click on the 'Browse' button and select the required file. The application will now work as it should. 
 
-If the user has selected the wrong file type by mistake, DOSCHEDA will show a series of errors in the 'Data Upload' section. To rectify this one must select a different file to upload (it is of no importance, but small files will upload faster),change the file type to the correct selection, then re-click on the 'Browse' button and select the required file. The application will now work as it should. 
-
-### Error: variable lengths differ
+##### Error: variable lengths differ
 
 If this error is present when applying a sigmoidal fit to the data, this means that DOSCHEDA is expecting a different amount of concentrations, please return to the **Data Upload** tab and ensure that this section has been filled in correctly, note that there will be a warning below the concentration input to tell the user if it is expecting more or less concentrations. 
 
+
+### References 
+
+The following are references for the packages used in DOSCHEDA.
+
+Dan Carr, ported by Nicholas Lewin-Koh, Martin Maechler and contains copies of lattice functions written by Deepayan Sarkar (2015). hexbin: Hexagonal
+  Binning Routines. R package version 1.27.1. https://CRAN.R-project.org/package=hexbin
+  
+Venables, W. N. & Ripley, B. D. (2002) Modern Applied Statistics with S. Fourth Edition. Springer, New York. ISBN 0-387-95457-0
+ 
+Winston Chang, Joe Cheng, JJ Allaire, Yihui Xie and Jonathan McPherson (2016). shiny: Web Application Framework for R. R package version 0.14.2.
+  https://CRAN.R-project.org/package=shiny
+
+Winston Chang (2016). shinydashboard: Create Dashboards with 'Shiny'. R package version 0.5.3. https://CRAN.R-project.org/package=shinydashboard
+
+Hadley Wickham (2016). stringr: Simple, Consistent Wrappers for Common String Operations. R package version 1.1.0.
+  https://CRAN.R-project.org/package=stringr
+
+Gautier, L., Cope, L., Bolstad, B. M., and Irizarry, R. A. 2004. affy---analysis of Affymetrix GeneChip data at the probe level. Bioinformatics 20, 3
+  (Feb. 2004), 307-315.
+
+Ritchie, M.E., Phipson, B., Wu, D., Hu, Y., Law, C.W., Shi, W., and Smyth, G.K. (2015). limma powers differential expression analyses for
+  RNA-sequencing and microarray studies. Nucleic Acids Research 43(7), e47.
+  
+Yihui Xie (2016). DT: A Wrapper of the JavaScript Library 'DataTables'. R package version 0.2. https://CRAN.R-project.org/package=DT
+
+H. Wickham. ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York, 2009.
+
+Wolfgang Huber, Anja von Heydebreck, Holger Sueltmann, Annemarie Poustka and Martin Vingron. Variance Stabilization Applied to Microarray Data
+  Calibration and to the Quantification of Differential Expression. Bioinformatics 18, S96-S104 (2002).
+  
+Baptiste Auguie (2016). gridExtra: Miscellaneous Functions for "Grid" Graphics. R package version 2.2.1. https://CRAN.R-project.org/package=gridExtra
+
+Sarkar, Deepayan (2008) Lattice: Multivariate Data Visualization with R. Springer, New York. ISBN 978-0-387-75968-5
+
+Kevin Wright (2016). corrgram: Plot a Correlogram. R package version 1.9. https://CRAN.R-project.org/package=corrgram
+
+Jan Graffelman (2013). calibrate: Calibration of Scatterplot and Biplot Axes. R package version 1.7.2. https://CRAN.R-project.org/package=calibrate
+
+Hadley Wickham (2007). Reshaping Data with the reshape Package. Journal of Statistical Software, 21(12), 1-20. URL http://www.jstatsoft.org/v21/i12/.
+
+Hadley Wickham (2016). readxl: Read Excel Files. R package version 0.1.1. https://CRAN.R-project.org/package=readxl
+
+Hadley Wickham (2016). lazyeval: Lazy (Non-Standard) Evaluation. R package version 0.2.0. https://CRAN.R-project.org/package=lazyeval
+
+Ritz, C., Baty, F., Streibig, J. C., Gerhard, D. (2015) Dose-Response Analysis Using R PLOS ONE, 10(12), e0146021
+
+Hadley Wickham (2016). httr: Tools for Working with URLs and HTTP. R package version 1.2.1. https://CRAN.R-project.org/package=httr
+
+Jeroen Ooms (2014). The jsonlite Package: A Practical and Consistent Mapping Between JSON Data and R Objects. arXiv:1403.2805 [stat.CO] URL
+  http://arxiv.org/abs/1403.2805
+  
+JJ Allaire, Joe Cheng, Yihui Xie, Jonathan McPherson, Winston Chang, Jeff Allen, Hadley Wickham, Aron Atkins and Rob Hyndman (2016). rmarkdown:
+  Dynamic Documents for R. R package version 1.1. https://CRAN.R-project.org/package=rmarkdown
+  
+Hadley Wickham and Romain Francois (2016). dplyr: A Grammar of Data Manipulation. R package version 0.5.0. https://CRAN.R-project.org/package=dplyr
+
+Joe Cheng and Tal Galili (2016). d3heatmap: Interactive Heat Maps Using 'htmlwidgets' and 'D3.js'. R package version 0.6.1.1.
+  https://CRAN.R-project.org/package=d3heatmap
+  
+Thomas A. Gerds (2015). prodlim: Product-Limit Estimation for Censored Event History Analysis. R package version 1.5.7.
+  https://CRAN.R-project.org/package=prodlim
+  
 
 
 
