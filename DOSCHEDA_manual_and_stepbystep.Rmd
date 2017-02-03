@@ -1,7 +1,7 @@
 ---
-title: "DOSCEDA 1.0 Manual and Walkthrough"
+title: "DOSCHEDA 1.0 Manual and Walkthrough"
 author: "Bruno Contrino and Piero Ricchiuto"
-date: "23 December 2016"
+date: "February 2017"
 output: 
   html_document:
     theme: cosmo
