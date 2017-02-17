@@ -1,0 +1,25 @@
+---
+title: "DOSCHEDA 1.0 Walkthroughs"
+author: "Bruno Contrino and Piero Ricchiuto"
+output: 
+  html_document:
+    theme: cosmo
+    toc: true
+    toc_float: true
+---
+
+In this document there are two chapters: 
+
+
+1. Linear Model Walkthrough
+
+2. Sigmoidal Model Walkthrough
+
+
+
+```{r child = 'Linearwalkthrough.Rmd'}
+```
+
+
+```{r child = 'SigmoidalWalkthrough.Rmd'}
+```
